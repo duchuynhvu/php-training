@@ -29,3 +29,18 @@ Route::group(['prefix' => 'user'], function () {
         return "Go to process to delete the user....";
     })->name('user-delete');
 });
+
+Route::group(['prefix' => 'category'], function () {
+    Route::get('list', function () {
+        return view('categories.list');
+    })->name('category-list');
+    Route::get('add', function () {
+        return view('categories.add');
+    })->name('category-add');
+    Route::get('update', function () {
+        return view('categories.update');
+    })->name('category-update');
+    Route::get('delete', function () {
+        return "Go to process to delete the category....";
+    })->name('category-delete');
+});
