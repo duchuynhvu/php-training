@@ -86,8 +86,8 @@
 
                 <div class="links">
                     <a href="{{route('user-list')}}">Users</a> -
-                    <a href="#">Categories</a> -
-                    <a href="#">Products</a>
+                    <a href="{{route('category-list')}}">Categories</a> -
+                    <a href="{{route('product-list')}}">Products</a>
                 </div>
 
             </div>

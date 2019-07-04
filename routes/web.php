@@ -44,3 +44,18 @@ Route::group(['prefix' => 'category'], function () {
         return "Go to process to delete the category....";
     })->name('category-delete');
 });
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('list', function () {
+        return view('products.list');
+    })->name('product-list');
+    Route::get('add', function () {
+        return view('products.add');
+    })->name('product-add');
+    Route::get('update', function () {
+        return view('products.update');
+    })->name('product-update');
+    Route::get('delete', function () {
+        return "Go to process to delete the product....";
+    })->name('product-delete');
+});
