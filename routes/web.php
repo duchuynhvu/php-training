@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('list', function () {
+        return view('users.list');
+    })->name('user-list');
+    Route::get('add', function () {
+        return view('users.add');
+    })->name('user-add');
+    Route::get('update', function () {
+        return view('users.update');
+    })->name('user-update');
+    Route::get('delete', function () {
+        return "Go to process to delete the user....";
+    })->name('user-delete');
+});
