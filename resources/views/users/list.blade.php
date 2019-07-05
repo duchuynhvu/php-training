@@ -2,34 +2,32 @@
 
 @section('main-contain')
     <div id="content">
-        <h4>Danh sách người dùng
-            <a class="btn" href="{{route('user-add')}}">Add</a>
+        <h4>List of users
+            <a class="btn" href="/create-user">Add</a>
         </h4>
 
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Tên</th>
+                <th>#</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Ngày tạo</th>
+                <th>Created date</th>
+                <th>ID</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>John</td>
-                <td>john@example.com</td>
-                <td>20/10/2010</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>mary@example.com</td>
-                <td>20/10/2010</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>july@example.com</td>
-                <td>20/10/2010</td>
-            </tr>
+            @foreach($users as $user)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td><a href="/user/update/{{$user->id}}">{{$user->name}}</a></td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->created_at}}</td>
+                    <td>{{$user->id}}</td>
+                    <td><a href="/user/delete/{{$user->id}}">Delete</a></td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
