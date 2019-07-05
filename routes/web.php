@@ -15,20 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('list', function () {
-        return view('users.list');
-    })->name('user-list');
-    Route::get('add', function () {
-        return view('users.add');
-    })->name('user-add');
-    Route::get('update', function () {
-        return view('users.update');
-    })->name('user-update');
-    Route::get('delete', function () {
-        return "Go to process to delete the user....";
-    })->name('user-delete');
-});
+
+Route::get('user', 'UserController@index')->name('user');
+Route::get('user/{id}', 'UserController@showInfo')->name('user.info');
+Route::get('create-user', 'UserController@create')->name('user.create');
+Route::get('user/update/{id}', 'UserController@update')->name('user.update');
+Route::get('user/delete/{id}', 'UserController@destroy')->name('user.delete');
+Route::post('user/store', 'UserController@store')->name('user.store');
+
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('list', function () {
