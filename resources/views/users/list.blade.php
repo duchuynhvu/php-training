@@ -12,7 +12,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Created date</th>
+                <th>Created time</th>
                 <th>ID</th>
                 <th>Delete</th>
             </tr>

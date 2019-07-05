@@ -25,18 +25,13 @@ Route::post('user/store', 'UserController@store')->name('user.store');
 
 
 Route::group(['prefix' => 'category'], function () {
-    Route::get('list', function () {
-        return view('categories.list');
-    })->name('category-list');
-    Route::get('add', function () {
+    Route::get('/', 'CategoryController@index')->name('category');
+    Route::get('/create', function () {
         return view('categories.add');
-    })->name('category-add');
-    Route::get('update', function () {
-        return view('categories.update');
-    })->name('category-update');
-    Route::get('delete', function () {
-        return "Go to process to delete the category....";
-    })->name('category-delete');
+    })->name('category.create');
+    Route::get('/update/{id}', 'CategoryController@update')->name('category.update');
+    Route::get('/delete/{id}', 'CategoryController@destroy')->name('category.delete');
+    Route::post('/store', 'CategoryController@store')->name('category.store');
 });
 
 Route::group(['prefix' => 'product'], function () {

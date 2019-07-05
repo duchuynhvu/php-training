@@ -3,33 +3,31 @@
 @section('main-contain')
     <div id="content">
         <h4>List of categories
-            <a class="btn" href="{{route('category-add')}}">Add</a>
+            <a class="btn" href="{{route('category.create')}}">Add</a>
         </h4>
 
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Name</th>
+                <th>ID</th>
+                <th>Created time</th>
                 <th># Product(s)</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Telephone</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Laptop</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Computer</td>
-                <td>10</td>
-            </tr>
+            @foreach($cats as $cat)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td><a href="/category/update/{{$cat->id}}">{{$cat->name}}</a></td>
+                    <td>{{$cat->id}}</td>
+                    <td>{{$cat->created_at}}</td>
+                    <td>{{count($cat->products)}}</td>
+                    <td><a href="/category/delete/{{$cat->id}}">Delete</a></td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
