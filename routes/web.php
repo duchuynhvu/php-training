@@ -35,16 +35,9 @@ Route::group(['prefix' => 'category'], function () {
 });
 
 Route::group(['prefix' => 'product'], function () {
-    Route::get('list', function () {
-        return view('products.list');
-    })->name('product-list');
-    Route::get('add', function () {
-        return view('products.add');
-    })->name('product-add');
-    Route::get('update', function () {
-        return view('products.update');
-    })->name('product-update');
-    Route::get('delete', function () {
-        return "Go to process to delete the product....";
-    })->name('product-delete');
+    Route::get('/', 'ProductController@index')->name('product');
+    Route::get('/create', 'ProductController@create')->name('product.create');
+    Route::get('/update/{id}', 'ProductController@update')->name('product.update');
+    Route::get('/delete/{id}', 'ProductController@destroy')->name('product.delete');
+    Route::post('/store', 'ProductController@store')->name('product.store');
 });
