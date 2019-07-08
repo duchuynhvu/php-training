@@ -27,42 +27,50 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => "Nguyen Van A",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van B",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van C",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van D",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van E",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van F",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van I",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Nguyen Van K",
                 'email' => str_random(6) . '@example.com',
-                'password' => bcrypt('matkhau')
+                'password' => bcrypt('matkhau'),
+                'created_at' => date('Y-m-d H:i:s')
             ]
         ]);
     }
@@ -74,13 +82,16 @@ class CategoriesTableSeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                'name' => "Telephone"
+                'name' => "Telephone",
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
-                'name' => "Laptop"
+                'name' => "Laptop",
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
-                'name' => "Computer"
+                'name' => "Computer",
+                'created_at' => date('Y-m-d H:i:s')
             ]
         ]);
     }
@@ -95,49 +106,57 @@ class ProductsTableSeeder extends Seeder
                 'name' => "iPhone 6",
                 'quality' => rand(1, 100),
                 'category_id' => 1,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "iPhone 7",
                 'quality' => rand(1, 100),
                 'category_id' => 1,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Samsung Note 6",
                 'quality' => rand(1, 100),
                 'category_id' => 1,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Dell Latitude 6400",
                 'quality' => rand(1, 100),
                 'category_id' => 2,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Dell Vostro 1500",
                 'quality' => rand(1, 100),
                 'category_id' => 2,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Mac",
                 'quality' => rand(1, 100),
                 'category_id' => 3,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Sony Vios",
                 'quality' => rand(1, 100),
                 'category_id' => 3,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ],
             [
                 'name' => "Lenovo",
                 'quality' => rand(1, 100),
                 'category_id' => 3,
-                'created_user_id' => 0
+                'user_id' => 0,
+                'created_at' => date('Y-m-d H:i:s')
             ]
         ]);
     }
