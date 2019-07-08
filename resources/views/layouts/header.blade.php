@@ -3,6 +3,6 @@
     <div class="links">
         <a href="{{route('user')}}">Users</a> -
         <a href="{{route('category')}}">Categories</a> -
-        <a href="{{route('product-list')}}">Products</a>
+        <a href="{{route('product')}}">Products</a>
     </div>
 </div>
