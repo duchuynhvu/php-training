@@ -13,6 +13,9 @@
                 <th>Name</th>
                 <th>Quality</th>
                 <th>Category</th>
+                <th>Created user</th>
+                <th>Created time</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -21,48 +24,72 @@
                 <td><a href="{{route('product-update')}}">iPhone 6</a></td>
                 <td>11</td>
                 <td>Telephone</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td><a href="{{route('product-update')}}">iPhone 7</a></td>
                 <td>9</td>
                 <td>Telephone</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td><a href="{{route('product-update')}}">Samsung Note 6</a></td>
                 <td>11</td>
                 <td>Telephone</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>4</td>
                 <td><a href="{{route('product-update')}}">Dell Latitude 6400</a></td>
                 <td>11</td>
                 <td>Laptop</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td><a href="{{route('product-update')}}">Dell Vostro 1500</a></td>
                 <td>11</td>
                 <td>Laptop</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>6</td>
                 <td><a href="{{route('product-update')}}">Mac</a></td>
                 <td>20</td>
                 <td>Computer</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>7</td>
                 <td><a href="{{route('product-update')}}">Lenovo</a></td>
                 <td>20</td>
                 <td>Computer</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             <tr>
                 <td>8</td>
                 <td><a href="{{route('product-update')}}">Sony Vios</a></td>
                 <td>20</td>
                 <td>Computer</td>
+                <td>##</td>
+                <td>##</td>
+                <td>Delete</td>
             </tr>
             </tbody>
         </table>
