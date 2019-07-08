@@ -12,8 +12,8 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>ID</th>
-                <th>Created time</th>
-                <th># Product(s)</th>
+                <th>#Product(s)</th>
+                <th>Updated at</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -23,12 +23,14 @@
                     <td>{{$loop->iteration}}</td>
                     <td><a href="/category/update/{{$cat->id}}">{{$cat->name}}</a></td>
                     <td>{{$cat->id}}</td>
-                    <td>{{$cat->created_at}}</td>
                     <td>{{count($cat->products)}}</td>
+                    <td>{{$cat->updated_at}}</td>
                     <td><a href="/category/delete/{{$cat->id}}">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+
+        <div class="text-right">{{$cats->links() }}</div>
     </div>
 @endsection

@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $cats = Category::get();
+        $cats = Category::orderby('name', 'asc')->paginate(config('constants.options.paging'));
         return view('categories.list')->with('cats', $cats);
     }
 

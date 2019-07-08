@@ -7,7 +7,7 @@
         <br>
         <form action="/category/store" method="post">
             @csrf
-            <input type="text" name="name" placeholder="Enter category name">
+            <input type="text" name="name" placeholder="Enter category name" autofocus>
             <br><br>
             <input type="submit" value="Add">
         </form>
