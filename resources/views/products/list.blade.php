@@ -14,8 +14,8 @@
                 <th>ID</th>
                 <th>Quality</th>
                 <th>Category</th>
-                <th>Created user</th>
-                <th>Created time</th>
+                <th>Created by</th>
+                <th>Updated at</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -35,5 +35,7 @@
 
             </tbody>
         </table>
+
+        <div class="text-right">{{ $products->links() }}</div>
     </div>
 @endsection

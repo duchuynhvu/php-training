@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderby('created_at', 'desc')->get();
+        $products = Product::orderby('updated_at', 'desc')->paginate(intval(config('constants.options.paging')));
         return view('products.list')->with('products', $products);
     }
 
@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
         $product = new Product();
         $product->name = $req->name;
-        $product->quality = $req->quality;
+        $product->quality = isset($req->quality) ? $req->quality : 0;
         $product->category_id = $req->category;
         $product->user_id = 1;
 
