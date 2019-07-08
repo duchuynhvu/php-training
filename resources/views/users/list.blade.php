@@ -12,8 +12,8 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Created time</th>
                 <th>ID</th>
+                <th>Updated at</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -23,12 +23,14 @@
                     <td>{{$loop->iteration}}</td>
                     <td><a href="/user/update/{{$user->id}}">{{$user->name}}</a></td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->created_at}}</td>
                     <td>{{$user->id}}</td>
+                    <td>{{$user->updated_at}}</td>
                     <td><a href="/user/delete/{{$user->id}}">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+
+        <div class="text-right">{{ $users->links() }}</div>
     </div>
 @endsection

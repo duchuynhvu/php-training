@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = User::orderby('updated_at', 'desc')->paginate(config('constants.options.paging'));
         return view('users.list')->with('users', $users);
     }
 
@@ -49,17 +49,17 @@ class UserController extends Controller
         $user->name = $req->name;
         $user->email = $req->email;
 
-        if (isset($req->id)) { //store in updated case
+        if (isset($req->id)) { //store if in updated case
             $user->exists = true;
             $user->id = $req->id;
-
+            //if password is empty, will not update it
             if (!empty($user->password)) {
                 $user->password = bcrypt($req->password);
             }
-            $message = "Updated.....!";
-        } else { //store in created case
+            $message = "User updated.....!";
+        } else { //store if in created case
             $user->password = bcrypt($req->password);
-            $message = "Created.....!";
+            $message = "User created.....!";
         }
         $user->save();
 

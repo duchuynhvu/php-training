@@ -7,7 +7,7 @@
         <br>
         <form action="/user/store" method="post">
             @csrf
-            <input type="text" name="name" value="{{$user->name}}">
+            <input type="text" name="name" value="{{$user->name}}" autofocus>
             <br><br>
             <input type="text" name="email" value="{{$user->email}}">
             <br><br>

@@ -7,7 +7,7 @@
         <br>
         <form action="/user/store" method="post">
             @csrf
-            <input type="text" name="name" placeholder="Enter your name">
+            <input type="text" name="name" placeholder="Enter your name" autofocus>
             <br><br>
             <input type="text" name="email" placeholder="Enter your email">
             <br><br>
