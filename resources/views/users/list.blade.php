@@ -6,6 +6,7 @@
             <a class="btn" href="/create-user">Add</a>
         </h4>
 
+    <!-- Table -->
         <table class="table table-hover">
             <thead>
             <tr>
