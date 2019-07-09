@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -22,16 +24,56 @@ class ProductController extends Controller
 
     public function update($id)
     {
-        $product = Product::find($id);
-        if (!$product) {
-            return back()->with('error', 'Could not find id ' . $id . '. Please try again!');
+        //START VALIDATE FOR EXISTENCE OF ID ****************
+        $id_validate = ['id' => $id];
+        $rules = ['id' => 'exists:products,id,id,!0'];
+
+        $validator = Validator::make($id_validate, $rules);
+
+        if ($validator->fails()) {
+            return abort(404);
         }
+        //END VALIDATE **************************************
+
+        //SHOW FORM *****************************************
+        $product = Product::find($id);
         $cats = Category::get();
+
         return view('products.update')->with(['product' => $product, 'cats' => $cats]);
     }
 
     public function store(Request $req)
     {
+        //****************************************************
+        //START VALIDATE *************************************
+        //****************************************************
+        //create custom validation messages ------------------
+        $messages = array(
+            'required' => 'The :attribute is really really really important.',
+            'same' => 'The :others must match.'
+        );
+        if (isset($req->id)) { //the update case
+            // create the validation rules for update form ----
+            $update_rules = array(
+                'id' => 'required|exists:products,id',
+                'name' => 'required|unique:products,name,' . $req->id,
+                'category' => 'required|exists:categories,id'
+            );
+            $validator = Validator::make(Input::all(), $update_rules, $messages);
+        } else { //the create case
+            // create the validation rules for create form ----
+            $new_rules = array(
+                'name' => 'required|unique:products,name',
+                'category' => 'required|exists:categories,id'
+            );
+            $validator = Validator::make(Input::all(), $new_rules, $messages);
+        }
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        //END VALIDATE*****************************************
+
+        //DO TO STORE *****************************************
         $product = new Product();
         $product->name = $req->name;
         $product->quality = isset($req->quality) ? $req->quality : 0;
@@ -52,10 +94,6 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        $product = Product::find($id);
-        if (!$product) {
-            return back()->with('error', 'Could not find id ' . $id . '. Please try again!');
-        }
         Product::destroy($id);
         return back()->with('success', "Product deleted!");
     }
