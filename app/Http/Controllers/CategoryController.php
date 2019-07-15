@@ -9,9 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+    protected $redirectTo = '/auth/login';
+
+    function __construct() {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        $cats = Category::orderby('name', 'asc')->paginate(config('constants.options.paging'));
+        $cats = Category::orderby('updated_at', 'desc')->paginate(config('constants.options.paging'));
         return view('categories.list')->with('cats', $cats);
     }
 

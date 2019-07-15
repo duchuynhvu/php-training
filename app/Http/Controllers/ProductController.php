@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
+    protected $redirectTo = '/auth/login';
+
+    function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $products = Product::orderby('updated_at', 'desc')->paginate(intval(config('constants.options.paging')));

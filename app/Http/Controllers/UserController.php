@@ -11,6 +11,12 @@ use \Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    protected $redirectTo = '/auth/login';
+
+    function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $users = User::orderby('updated_at', 'desc')->paginate(config('constants.options.paging'));
@@ -67,7 +73,7 @@ class UserController extends Controller
             $new_rules = array(
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'required|confirmed',
+                'password' => 'required',
                 'password_confirm' => 'same:password'
             );
             $validator = Validator::make(Input::all(), $new_rules, $messages);
@@ -77,7 +83,6 @@ class UserController extends Controller
                 'id' => 'required|exists:users,id',
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email,' . $req->id,
-                'password' => 'confirmed',
                 'password_confirm' => 'same:password'
             );
             $validator = Validator::make(Input::all(), $update_rules, $messages);
