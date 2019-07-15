@@ -83,6 +83,14 @@
         <div class="title m-b-md">
             Laravel <span style="font-size:30px;">5.8</span> Training
         </div>
+        <div>
+            <!-- Authentication Links -->
+            @if(Auth::check())
+                <a class="nav-link" href="{{route('user')}}">Users</a> -
+                <a class="nav-link" href="{{route('category')}}">Categories</a> -
+                <a class="nav-link" href="{{route('product')}}">Products</a>
+            @endif
+        </div>
     </div>
 </div>
 </body>
