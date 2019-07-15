@@ -1,25 +1,34 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('main-contain')
+@section('content')
     <div id="content">
-        <p class="small"><a href="{{route('category')}}">back </a></p>
-        <h2>Add a new category</h2>
-        <br>
-
+        <!-- Header -->
+        <h4 class="d-flex margin-hdr-30 padding-hdr-20">
+            Add a new category <a class="btn btn-outline-primary ml-auto p-2" href="{{route('category')}}">Back</a>
+        </h4>
         <!-- Error Message -->
-    @if(session('success'))
-        @include('blocks.success')
-    @endif
-    @if(session('errors'))
-        @include('blocks.error')
-    @endif
+    @if(session('success')) @include('blocks.success') @endif
+    @if(session('errors')) @include('blocks.error') @endif
 
     <!-- Form -->
-        <form action="/category/store" method="post">
+        <form class="form-horizontal" action="/category/store" method="post">
             @csrf
-            <input type="text" name="name" value="{{Input::old('name')}}" placeholder="Enter category name" autofocus>
-            <br><br>
-            <input type="submit" value="Add">
+            <div class="form-group row"><!-- Name -->
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" value="{{old('name')}}" placeholder="Enter category name"
+                           class="form-control @error('name') is-invalid @enderror">
+                    @error('name')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row"><!-- Button -->
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
         </form>
     </div>
 @endsection

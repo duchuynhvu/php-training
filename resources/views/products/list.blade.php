@@ -1,11 +1,14 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('main-contain')
+@section('content')
+
     <div id="content">
-        <h4>List of products
-            <a class="btn" href="{{route('product.create')}}">Add</a>
+        <!-- Header -->
+        <h4 class="d-flex margin-hdr-30">
+            List of products <a class="btn btn-outline-primary ml-auto p-2" href="{{route('product.create')}}">Create</a>
         </h4>
 
+        <!-- Table -->
         <table class="table table-hover">
             <thead>
             <tr>
@@ -36,6 +39,6 @@
             </tbody>
         </table>
 
-        <div class="text-right">{{ $products->links() }}</div>
+        <div class="d-flex justify-content-end">{{ $products->links() }}</div>
     </div>
 @endsection

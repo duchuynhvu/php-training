@@ -1,11 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('main-contain')
+@section('content')
     <div id="content">
-        <h4>List of categories
-            <a class="btn" href="{{route('category.create')}}">Add</a>
+        <!-- Header -->
+        <h4 class="d-flex margin-hdr-30">
+            List of categories <a class="btn btn-outline-primary ml-auto p-2" href="{{route('category.create')}}">Create</a>
         </h4>
-
+        <!-- Table -->
         <table class="table table-hover">
             <thead>
             <tr>
@@ -31,6 +32,6 @@
             </tbody>
         </table>
 
-        <div class="text-right">{{$cats->links() }}</div>
+        <div class="d-flex justify-content-end">{{$cats->links() }}</div>
     </div>
 @endsection

@@ -1,12 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('main-contain')
+@section('content')
+
     <div id="content">
-        <h4>List of users
-            <a class="btn" href="/create-user">Add</a>
+        <!-- Header -->
+        <h4 class="d-flex margin-hdr-30">
+            List of users <a class="btn btn-outline-primary ml-auto p-2" href="/create-user">Create</a>
         </h4>
-
-    <!-- Table -->
+        <!-- Table -->
         <table class="table table-hover">
             <thead>
             <tr>
@@ -32,6 +33,6 @@
             </tbody>
         </table>
 
-        <div class="text-right">{{ $users->links() }}</div>
+        <div class="d-flex justify-content-end">{{ $users->links() }}</div>
     </div>
 @endsection
