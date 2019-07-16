@@ -1,25 +1,27 @@
-**Login**
-username: view in database
-password: secret
+## Login
 
-Getting started
-**Download package:**
-composer install
+- username: view in database
+- password: secret
 
-**Update package:**
-composer update
+## Getting started
 
-**Run migrations**
-\>php artisan migrate
+Download package:
+- composer install
 
-**Run Seeders:**
-\>php artisan db:seed --class=UsersTableSeeder
+Update package:
+- composer update
 
-**Run development server:**
-\>php artisan serve
+Run migrations
+- php artisan migrate
 
-**Re-building the database:**
-\>php artisan migrate:refresh --seed
+Run Seeders:
+- php artisan db:seed --class=UsersTableSeeder
 
-**Clear cache at changes in .inv file:**
-\>php artisan cache:clear
+Run development server:
+- php artisan serve
+
+Re-building the database:
+- php artisan migrate:refresh --seed
+
+Clear cache at changes in .inv file:
+- php artisan cache:clear
